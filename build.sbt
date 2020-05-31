@@ -28,8 +28,15 @@ lazy val `calcite-scala-example` = (project in file("."))
     },
     
     libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % "3.0.1" % "test"
-    ),
+      "org.postgresql" % "postgresql" % "42.2.5",
+      "com.typesafe" % "config" % "1.3.3",
+      "org.scaldi" %% "scaldi" % "0.5.8",
+      "ch.qos.logback" % "logback-classic" % "1.2.3"
+    ) ++ Seq(
+      "org.scalatest" %% "scalatest" % "3.0.1",
+      "com.whisk" %% "docker-testkit-scalatest" % "0.9.8",
+      "com.whisk" %% "docker-testkit-impl-spotify" % "0.9.8"
+    ).map(_  % "test"),
 
     //when run tests with coverage: "sbt clean coverage test coverageReport"
     coverageMinimum := 80

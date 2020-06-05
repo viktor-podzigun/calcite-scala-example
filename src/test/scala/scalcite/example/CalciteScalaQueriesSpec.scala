@@ -6,11 +6,10 @@ import org.scalatest._
 class CalciteScalaQueriesSpec extends BaseIntegrationTest {
 
   it should "run example query 1" in {
-    //given
-
     //when
+    val result = task1.run()
 
     //then
-    println(s"dbPostgresInfo: $dbPostgresInfo")
+    result shouldBe "sum: 1.0000"
   }
 }

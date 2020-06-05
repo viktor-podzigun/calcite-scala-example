@@ -32,6 +32,7 @@ class AllIntegrationTests extends Suites(
     super.beforeAll()
 
     initializeDb("/test_db.sql")
+    initializeDb("/test_data.sql", dbName = "test_db")
     logger.info("test DB is ready")
   }
 }

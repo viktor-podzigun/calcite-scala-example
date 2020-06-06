@@ -25,9 +25,9 @@ and then choose a query to run:
 ```bash
 Multiple main classes detected, select one to run:
 
- [1] scalcite.example.Task1
- [2] scalcite.example.Task2
- [3] scalcite.example.Task3
+ [1] scalcite.example.Query1
+ [2] scalcite.example.Query2
+ [3] scalcite.example.Query3
  
 Enter number: ...
 ```

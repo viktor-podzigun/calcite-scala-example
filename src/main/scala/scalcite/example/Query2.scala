@@ -1,12 +1,12 @@
 package scalcite.example
 
+import java.sql.Statement
+
 import scalcite.example.db.PostgresDatabase
 
-class Task2(postgresDatabase: PostgresDatabase) {
-  
-  def run(): String = {
-    val conn = postgresDatabase.getConnection
-    val statement = conn.createStatement()
+class Query2(db: PostgresDatabase) extends BaseQuery(db) {
+
+  protected def run(statement: Statement): String = {
     val resultSet = statement.executeQuery(
       """
         |select t.month_of_year, t.the_month, sum(f.unit_sales) as sum from sales_fact_1998 f, customer c, time_by_day t
@@ -29,9 +29,4 @@ class Task2(postgresDatabase: PostgresDatabase) {
   }
 }
 
-object Task2 extends MainInjector {
-
-  def main(args: Array[String]): Unit = {
-    println(new Task2(postgresDatabase).run())
-  }
-}
+object Query2 extends Main[Query2]

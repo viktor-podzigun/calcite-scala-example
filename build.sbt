@@ -39,5 +39,6 @@ lazy val `calcite-scala-example` = (project in file("."))
     ).map(_  % "test"),
 
     //when run tests with coverage: "sbt clean coverage test coverageReport"
+    coverageExcludedPackages := "scalcite.example.Main",
     coverageMinimum := 80
   )

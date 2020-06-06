@@ -19,6 +19,8 @@ class AllIntegrationTests extends Suites(
   implicit lazy val injector: Injector = {
     new DBModule {
       bind[Task1] to new Task1(inject[PostgresDatabase])
+      bind[Task2] to new Task2(inject[PostgresDatabase])
+      bind[Task3] to new Task3(inject[PostgresDatabase])
     } :: TypesafeConfigInjector(configure(
       ConfigFactory.load(),
       "database.port" -> postgresPort,

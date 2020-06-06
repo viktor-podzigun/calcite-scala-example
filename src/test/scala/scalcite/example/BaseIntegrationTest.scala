@@ -25,6 +25,8 @@ trait BaseIntegrationTest extends FlatSpec
 
   protected lazy val dbPostgresInfo: PostgresDatabase = inject[PostgresDatabase]
   protected lazy val task1: Task1 = inject[Task1]
+  protected lazy val task2: Task2 = inject[Task2]
+  protected lazy val task3: Task3 = inject[Task3]
   
   //////////////////////////////////////////////////////////////////////////////
   // helpers

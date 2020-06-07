@@ -8,10 +8,11 @@ import scala.reflect.runtime.universe._
 
 abstract class Main[T <: BaseQuery: TypeTag: NotNothing] {
 
-  private implicit lazy val injector: Injector =
-    new MainModule {} :: TypesafeConfigInjector()
-
   def main(args: Array[String]): Unit = {
-    println(inject[T].apply())
+    implicit lazy val injector: Injector =
+      new MainModule {} :: TypesafeConfigInjector()
+
+    val query = inject[T]
+    println(query())
   }
 }

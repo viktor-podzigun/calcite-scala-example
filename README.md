@@ -5,7 +5,34 @@
 ## calcite-scala-example
 Using Apache Calcite library with Scala example
 
-### How to Build
+### How to use it
+
+Example queries are written for [foodmart](https://github.com/OSBI/foodmart-data)
+dataset, so please, make sure you have it in your local db before
+running them.
+
+#### Query 1
+
+What's the sum of `unit_sales` from `the sales_fact_1998`
+where the Customer's `city` is "Albany":
+
+[Query1](src/main/scala/scalcite/example/Query1.scala) => [tests](src/test/scala/scalcite/example/Query1Spec.scala)
+
+#### Query 2
+
+Drill-down `query 1` to get the sum of sales by each month
+(use the `time_by_day` table):
+
+[Query2](src/main/scala/scalcite/example/Query2.scala) => [tests](src/test/scala/scalcite/example/Query2Spec.scala)
+
+#### Query 3
+
+Get the top 5 customer names from "Albany" which have
+the highest `unit_sales`:
+
+[Query3](src/main/scala/scalcite/example/Query3.scala) => [tests](src/test/scala/scalcite/example/Query3Spec.scala)
+
+### How to build
 
 To build and run all integration tests, use the following command:
 ```bash
@@ -14,7 +41,7 @@ sbt test
 
 **Note**: you should have `docker` installed on your system
 
-### How to Run
+### How to run
 
 To run example queries locally, use the following command:
 ```bash

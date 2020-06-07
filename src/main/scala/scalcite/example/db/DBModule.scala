@@ -4,7 +4,7 @@ import scaldi.Module
 
 trait DBModule extends Module {
 
-  bind[PostgresDatabase] to PostgresDatabase(
+  bind[PostgresDatabase] to new PostgresDatabase(
     host = inject[String](identified by "database.host"),
     port = inject[Int](identified by "database.port"),
     username = inject[String](identified by "database.username"),

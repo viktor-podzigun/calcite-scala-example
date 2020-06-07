@@ -2,11 +2,11 @@ package scalcite.example.db
 
 import java.sql.{Connection, DriverManager}
 
-case class PostgresDatabase(host: String,
-                            port: Int,
-                            username: String,
-                            password: String,
-                            dbName: String) {
+class PostgresDatabase(host: String,
+                       port: Int,
+                       username: String,
+                       password: String,
+                       dbName: String) {
   
   def getConnection: Connection = {
     // make sure driver is loaded

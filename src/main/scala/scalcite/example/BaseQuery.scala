@@ -6,10 +6,17 @@ import scalcite.example.db.PostgresDatabase
 
 abstract class BaseQuery(db: PostgresDatabase) {
 
-  def apply(): String = {
+  def apply(): String = BaseQuery.execute(db)(run)
+  
+  protected def run(statement: Statement): String
+}
+
+object BaseQuery {
+
+  def execute(db: PostgresDatabase)(q: Statement => String): String = {
     val conn = db.getConnection
     try {
-      run(conn.createStatement())
+      q(conn.createStatement())
     }
     finally {
       //TODO: use proper resource closing:
@@ -17,6 +24,4 @@ abstract class BaseQuery(db: PostgresDatabase) {
       conn.close()
     }
   }
-  
-  protected def run(statement: Statement): String
 }

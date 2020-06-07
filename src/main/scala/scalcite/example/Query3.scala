@@ -2,11 +2,12 @@ package scalcite.example
 
 import java.sql.Statement
 
+import org.apache.calcite.tools.RelBuilder
 import scalcite.example.db.PostgresDatabase
 
 class Query3(db: PostgresDatabase) extends BaseQuery(db) {
 
-  protected def run(statement: Statement): String = {
+  protected def run(statement: Statement, builder: RelBuilder): String = {
     val resultSet = statement.executeQuery(
       """
         |select c.fullname, sum(f.unit_sales) as sum from sales_fact_1998 f, customer c

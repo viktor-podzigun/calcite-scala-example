@@ -28,6 +28,7 @@ lazy val `calcite-scala-example` = (project in file("."))
     },
     
     libraryDependencies ++= Seq(
+      "org.apache.calcite" % "calcite-core" % "1.23.0",
       "org.postgresql" % "postgresql" % "42.2.5",
       "com.typesafe" % "config" % "1.3.3",
       "org.scaldi" %% "scaldi" % "0.5.8",
